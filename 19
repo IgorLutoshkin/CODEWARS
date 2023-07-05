@@ -1,0 +1,19 @@
+/* 
+Напишите функцию, которая будет проходить через массив
+целых чисел и выводить индекс каждого элемента с задержкой в 3 секунды.
+*/
+
+
+
+
+const list = (arr) => {
+  let i = 0;
+  const interval = setInterval(() => {
+    console.log([i]);
+    i++;
+    if (i === arr.length) {
+      clearInterval(interval);
+    }
+  },3000);
+};
+list([1, 2, 3, 45]);
