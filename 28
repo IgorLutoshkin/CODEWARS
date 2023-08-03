@@ -1,0 +1,53 @@
+/* Тролли атакуют ваш раздел комментариев!
+
+Распространенный способ справиться с этой ситуацией - удалить все гласные из комментариев троллей, нейтрализуя угрозу.
+
+Ваша задача - написать функцию, которая принимает строку и возвращает новую строку с удаленными всеми гласными.
+
+Например, строка "Этот веб-сайт для неудачников, ЛОЛ!" станет "Ths wbst s fr lsrs LL!".
+
+Примечание: для этого ката y не считается гласным.
+
+ */
+
+/* 
+// еще вариант через регулярные выражения
+
+function disemvowel(str) {
+  const vowelsRegex = /[aeiou]/gi; // Regular expression to match any vowel
+  const words = str.split(" "); // Split the string into an array of words
+  const res = []; // Array to accumulate the result strings without vowels
+
+  // Loop through each word in the array and concatenate it without vowels
+  for (let i = 0; i < words.length; i++) {
+    const wordWithoutVowels = words[i].replace(vowelsRegex, "");
+    res.push(wordWithoutVowels);
+  }
+
+  return res.join(" "); // Return the resulting array of words without vowels
+}
+
+console.log(disemvowel("This website is for losers LOL!")); 
+*/
+
+function disemvowel(str) {
+  const gl = ["a", "o", "e", "i", "u"];
+
+  //преобразование в массив
+  let arrStr = str.split(" ");
+  //разбивка массива на подмассивы букв
+  let arrOfArr = arrStr.map((item) => item.split(""));
+
+//перебор букв подмассивов и иключение глассных
+  for (let i = 0; i < arrOfArr.length; i++) {
+    arrOfArr[i] = arrOfArr[i].filter((letter) => !gl.includes(letter.toLowerCase()));
+  }
+
+//соединение подмассивы букв в массив
+  let joinedArr =arrOfArr.map((letterArr) => letterArr.join(""));
+  //преобразование в строку
+  let joinedStr = joinedArr.join(" ");
+
+  return joinedStr;
+}
+console.log(disemvowel("This website is for losers LOL!"));
