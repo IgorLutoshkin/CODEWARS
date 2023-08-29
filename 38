@@ -1,0 +1,24 @@
+/*
+Чередующийся падеж <=> Чередующийся падеж
+Определите String.prototype.toAlternatingCase (или аналогичную функцию / метод, например, to_alternating_case/toAlternatingCase/ToAlternatingCase на выбранном вами языке; подробности см. в исходном решении) таким образом, чтобы каждая строчная буква становилась прописной, а каждая заглавная буква - строчной. Например:
+
+"hello world".toAlternatingCase() === "HELLO WORLD"
+"HELLO WORLD".toAlternatingCase() === "hello world"
+"hello WORLD".toAlternatingCase() === "HELLO world"
+"HeLLo WoRLD".toAlternatingCase() === "hEllO wOrld"
+"12345".toAlternatingCase()       === "12345"                   // Non-alphabetical characters are unaffected
+"1a2b3c4d5e".toAlternatingCase()  === "1A2B3C4D5E"
+"String.prototype.toAlternatingCase".toAlternatingCase() === "sTRING.PROTOTYPE.TOaLTERNATINGcASE"
+*/
+
+String.prototype.toAlternatingCase = function() {
+  let result = '';
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] === this[i].toUpperCase()) {
+      result += this[i].toLowerCase();
+    } else {
+      result += this[i].toUpperCase();
+    }
+  }
+  return result;
+}
