@@ -1,0 +1,20 @@
+/*
+На этот раз никакой истории, никакой теории. Приведенные ниже примеры показывают, как написать функцию accum:
+
+Примеры:
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+Параметр accum представляет собой строку, которая включает только буквы из a..z и A..Z.
+
+ОСНОВЫСТРОКИПАЗЛЫ
+*/
+function accum(s) {
+  const spl = s.split("");
+  let a = "";
+  for (let i = 0; i < spl.length; i++) {
+    a = a + spl[i].toUpperCase() + spl[i].toLowerCase().repeat(i) + "-";
+  }
+  return a.slice(0,-1);
+}
+console.log(accum("ZpglnRxqenU"));
