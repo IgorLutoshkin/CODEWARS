@@ -1,0 +1,36 @@
+/*
+Получив строку, преобразуйте каждый символ в соответствующий код символа ASCII и соедините их вместе, чтобы создать число - давайте назовем это число total1:
+
+'ABC' --> 'A' = 65, 'B' = 66, 'C' = 67 --> 656667
+Затем замените любое совпадение числа 7 с числом 1 и назовите это число 'total2':
+
+total1 = 656667
+              ^
+total2 = 656661
+              ^
+Затем верните разницу между суммой цифр в total1 и total2:
+
+  (6 + 5 + 6 + 6 + 6 + 7)
+- (6 + 5 + 6 + 6 + 6 + 1)
+-------------------------
+                       6
+ОСНОВЫМАССИВЫСТРОКИМАТЕМАТИКА
+*/
+
+function calc(x) {
+  const arr = x.split("");
+  const str1 = arr.map((el) => el.charCodeAt(0)).join("");
+  const arr1 = str1.split("");
+
+  const total1 = arr1.reduce(function (x, y) {
+    return parseInt(x) + parseInt(y);
+  });
+  const arr2 = arr1.map((i) => (i === "7" ? "1" : i));
+  const total2 = arr2.reduce(function (x, y) {
+    return parseInt(x) + parseInt(y);
+  });
+
+  return total1 - total2;
+}
+
+console.log(calc("ifkhchlhfd"));
