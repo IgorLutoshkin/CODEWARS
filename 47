@@ -1,0 +1,27 @@
+/*
+ОПИСАНИЕ:
+Число 198 обладает свойством, которое 198 = 11 + 99 + 88, i.e., if each of its digits is concatenated twice and then summed, the result will be the original number. Оказывается, что 198 это единственное число с этим свойством. Однако свойство можно обобщить так, чтобы каждая цифра объединялась n раз, а затем суммировалась.
+
+Примеры
+original number =2997 , n=3
+2997 = 222+999+999+777 and here each digit is concatenated three times.
+
+original number=-2997 , n=3
+
+-2997 = -222-999-999-777 and here each digit is concatenated three times.
+Задача
+Напишите функцию с именем checkConcatenatedSum, которая проверяет, обладает ли число этим обобщенным свойством.
+
+ОСНОВЫ
+*/
+
+const checkConcatenatedSum = (num, n) => {
+  let a = String(Math.abs(num)).split("");
+  console.log(a);
+  let b = a.map((el) => parseInt(el.repeat(n)));
+  let c = b.reduce((accum, cur) => accum + cur, 0);
+console.log(c);
+  return Math.abs(num) === c ? true : false;
+};
+
+console.log(checkConcatenatedSum(-2997, 3));
