@@ -1,0 +1,6 @@
+const binaryArrayToNumber = (arr) => {
+  let str = arr.join("");
+  // console.log(str);
+  return parseInt(str, 2);
+};
+console.log(binaryArrayToNumber([1, 0, 0, 0, 1]));
