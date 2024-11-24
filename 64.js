@@ -5,27 +5,38 @@
 
  */
 
+// function isValidWalk(walk) {
+//   let north = 0;
+//   let west = 0;
+
+//   if (walk.length !== 10) {
+//     return false;
+//   } else {
+//     for (let current of walk) {
+//       if (current === "n") {
+//         north++;
+//       } else if (current === "s") {
+//         north--;
+//       } else if (current === "w") {
+//         west++;
+//       } else if (current === "e") {
+//         west--;
+//       }
+//     }
+
+//     return north === 0 && west === 0;
+//   }
+// }
+
+// console.log(isValidWalk(["n", "s", "e", "w", "n", "s", "e", "w", "e", "w"]));
+
 function isValidWalk(walk) {
-  let north = 0;
-  let west = 0;
-
-  if (walk.length !== 10) {
-    return false;
-  } else {
-    for (let current of walk) {
-      if (current === "n") {
-        north++;
-      } else if (current === "s") {
-        north--;
-      } else if (current === "w") {
-        west++;
-      } else if (current === "e") {
-        west--;
-      }
-    }
-
-    return north === 0 && west === 0;
+  function count(val) {
+    return walk.filter((a) => a === val);
   }
+  return (
+    walk.length === 10 && count("n") === count("s") && count("w") === count("e")
+  );
 }
 
 console.log(isValidWalk(["n", "s", "e", "w", "n", "s", "e", "w", "e", "w"]));
